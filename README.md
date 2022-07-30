@@ -77,9 +77,9 @@ Thanks for non-commercial open source development authorization by JetBrains.
 
 ### 🍭 效果
 
-[![邮件示例](https://s4.ax1x.com/2022/02/26/bZr7WQ.png)](https://s4.ax1x.com/2022/02/26/bZr7WQ.png)
+无论是续期成败或者程序执行出错，都会收到脚本发出的通知。如果是续期成败相关的通知，通知会包括未续期域名的到期天数等内容。*此处展示的是通知邮件的内容。*
 
-无论是续期成败或者脚本执行出错，都会收到的程序发出的邮件。如果是续期成败相关的邮件，邮件会包括未续期域名的到期天数等内容。 邮件参考了微信发送的注销公众号的邮件样式。
+<a href="https://s4.ax1x.com/2022/02/26/bZr7WQ.png"><img src="https://s4.ax1x.com/2022/02/26/bZr7WQ.png" alt="邮件示例" border="0" width="670" height="540" /></a>
 
 ### 🎁 事前准备
 
@@ -317,19 +317,19 @@ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/ap
     <summary>点我查看 .env 文件中部分配置项的含义</summary>
 <br>
 
-| 变量名 | 含义 | 默认值 | 是否必须 |                                                                        备注                                                                        |
-| :---: | :---: |:---:|:----:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
-| FREENOM_USERNAME | Freenom 账户 |  -  |  是   |                                           只支持邮箱账户，如果你是使用第三方社交账户登录的用户，请在 Freenom 管理页面绑定邮箱，绑定后即可使用邮箱账户登录                                           |
-| FREENOM_PASSWORD | Freenom 密码 |  -  |  是   |                                                            某些特殊字符可能需要转义，详见`.env`文件内注释                                                            |
-| MULTIPLE_ACCOUNTS | 多账户支持 |  -  |  否   |                                                           多个账户和密码的格式必须是“`<账户1>@<密码1>\                                                            |<账户2>@<密码2>\|<账户3>@<密码3>`”，注意不要省略“<>”符号，否则无法正确匹配。如果设置了多账户，上面的`FREENOM_USERNAME`和`FREENOM_PASSWORD`可不设置 |
-| MAIL_USERNAME | 机器人邮箱账户 |  -  |  否   | 支持`Gmail`、`QQ邮箱`、`163邮箱`以及`Outlook邮箱`，尽可能使用`163邮箱`或者`QQ邮箱`而非`Gmail`。因为谷歌的安全机制，每次在新设备登录 `Gmail` 都会先被限制，需要手动解除限制才行。具体的配置方法参考「 [配置送信功能](#-配置送信功能) 」 |
-| MAIL_PASSWORD | 机器人邮箱密码 |  -  |  否   |                                                          `Gmail`填密码，`QQ邮箱`或`163邮箱`填授权码                                                           |
-| TO | 接收通知的邮箱 |  -  |  否   |                                                           你自己最常用的邮箱，用来接收机器人邮箱发出的域名相关邮件                                                           |
-| MAIL_ENABLE | 是否启用邮件推送功能 | `0` |  否   |                           `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，启用邮件推送功能，则上面的`MAIL_USERNAME`、`MAIL_PASSWORD`、`TO`变量变为必填项                            |
-| TELEGRAM_CHAT_ID | 你的`chat_id` |  -  |  否   |                                                      通过发送`/start`给`@userinfobot`可以获取自己的`id`                                                      |
+| 变量名 | 含义 | 默认值 | 是否必须 |                                             备注                                              |
+| :---: | :---: |:---:|:----:|:-------------------------------------------------------------------------------------------:|
+| FREENOM_USERNAME | Freenom 账户 |  -  |  是   |                只支持邮箱账户，如果你是使用第三方社交账户登录的用户，请在 Freenom 管理页面绑定邮箱，绑定后即可使用邮箱账户登录                 |
+| FREENOM_PASSWORD | Freenom 密码 |  -  |  是   |                                 某些特殊字符可能需要转义，详见`.env`文件内注释                                  |
+| MULTIPLE_ACCOUNTS | 多账户支持 |  -  |  否   |                                 多个账户和密码的格式必须是“`<账户1>@<密码1>\|<账户2>@<密码2>\|<账户3>@<密码3>`”，注意不要省略“<>”符号，否则无法正确匹配。如果设置了多账户，上面的`FREENOM_USERNAME`和`FREENOM_PASSWORD`可不设置 |
+| MAIL_USERNAME | 机器人邮箱账户 |  -  |  否   |                            支持`Gmail`、`QQ邮箱`、`163邮箱`以及`Outlook邮箱`                            |
+| MAIL_PASSWORD | 机器人邮箱密码 |  -  |  否   |                              `Gmail`填应用专用密码，`QQ邮箱`或`163邮箱`填授权码                              |
+| TO | 接收通知的邮箱 |  -  |  否   |                                你自己最常用的邮箱，用来接收机器人邮箱发出的域名相关邮件                                 |
+| MAIL_ENABLE | 是否启用邮件推送功能 | `0` |  否   | `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，启用邮件推送功能，则上面的`MAIL_USERNAME`、`MAIL_PASSWORD`、`TO`变量变为必填项 |
+| TELEGRAM_CHAT_ID | 你的`chat_id` |  -  |  否   |                           通过发送`/start`给`@userinfobot`可以获取自己的`id`                            |
 | TELEGRAM_BOT_TOKEN | 你的`Telegram bot`的`token` |  -  |  否   ||
-| TELEGRAM_BOT_ENABLE | 是否启用`Telegram Bot`推送功能 | `0` |  否   |                               `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，则必须设置上面的`TELEGRAM_CHAT_ID`和`TELEGRAM_BOT_TOKEN`变量                               |
-| NOTICE_FREQ | 通知频率 | `1` |  否   |                                                            `0`：仅当有续期操作的时候<br>`1`：每次执行                                                            |
+| TELEGRAM_BOT_ENABLE | 是否启用`Telegram Bot`推送功能 | `0` |  否   |    `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，则必须设置上面的`TELEGRAM_CHAT_ID`和`TELEGRAM_BOT_TOKEN`变量     |
+| NOTICE_FREQ | 通知频率 | `1` |  否   |                                 `0`：仅当有续期操作的时候<br>`1`：每次执行                                  |
 
 **更多配置项含义，请参考 [.env.example](https://github.com/luolongfei/freenom/blob/main/.env.example) 文件中的注释。**
 
@@ -513,7 +513,7 @@ PayPal: [https://www.paypal.me/mybsdc](https://www.paypal.me/mybsdc)
 
 ### 📰 更新日志
 
-此处只含最新版本的更新日志，完整的日志记录请参考 [Changelog.md](https://github.com/luolongfei/freenom/blob/main/Changelog.md)
+此处只含最新版本的更新日志，完整的日志记录请参考 [CHANGELOG.md](https://github.com/luolongfei/freenom/blob/main/CHANGELOG.md)
 
 #### [Unreleased](#)
 
