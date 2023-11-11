@@ -12,7 +12,12 @@
 Documentation: [English version](https://github.com/luolongfei/freenom/blob/main/README_EN.md) | 中文版
 </div>
 
-[📢 注意](#-注意)
+**Freenom 已经加上了 AWS WAF CAPTCHA 用于各个页面的验证，目前脚本追加了重试机制，可在 `.env` 中自行修改 `MAX_REQUEST_RETRY_COUNT`的值以配置最大重试次数，默认最多重试 32 次，每次至少休眠 20 秒，第 5 次后每次休眠时间根据重试次数递增。根据群友反馈，建议大家把最多重试次数设为 200，可极大增加成功率。更多消息可在热心网友的电报群内交流。**
+[https://t.me/freenom_auto_renew](https://t.me/freenom_auto_renew)
+
+如果你想要一台性价比高的 vps，年付 10 多刀，可以参考（含 Aff）：[https://go.llfapp.com/cc](https://go.llfapp.com/cc)
+
+[📢 公告](#-公告)
 
 [🌿 特别感谢 Special Thanks](#-特别感谢-special-thanks)
 
@@ -34,7 +39,7 @@ Documentation: [English version](https://github.com/luolongfei/freenom/blob/main
 
 [🧪 通过 Mogenius 部署](#-通过-Mogenius-部署)（已不可行）
 
-[☁ 通过 各种云函数 部署](#-通过各种云函数部署)
+[☁ 通过 各种云函数 部署](#-通过各种云函数部署) （目前各平台已开启收费模式，已放弃支持）
 
 [🚧 直接拉取源码部署](#-直接拉取源码部署)
 
@@ -58,13 +63,8 @@ Documentation: [English version](https://github.com/luolongfei/freenom/blob/main
 
 [🥝 开源协议](#-开源协议)
 
-### 📢 注意
+### 📢 公告
 
-- 之前因为 GitHub Action 事件导致本项目被封禁，而后我短暂将项目转移到了 https://github.com/luolongfei/next-freenom
-  仓库，然后在 [@Mattraks](https://github.com/Mattraks) 的提醒下，通过特别的方式恢复了本仓库。
-- 本次封禁导致的直接后果是以前的`issues`全部丢失，以及近`1.8k`的`star`数重新归零，在动力上面确实有受到影响，不过也不会有太大影响，本项目依然长期维护，如果项目有帮到你，欢迎 star。
-- 狡兔三窟，临时仓库 https://github.com/luolongfei/next-freenom 也是备用仓库，如若本仓库再次失联，可以移步到备用仓库获取最新消息，正常情况下以后的开发维护依然在本仓库进行。
-- 推荐 [🐳 通过 Docker 方式部署](#-通过-docker-部署)。如果你没有自己的服务器，可参考本文档 [📦 通过 Koyeb 部署](#-通过-Koyeb-部署) 。
 - 热心网友创建了`Freenom 续期事务局`群组，可供交流、测试、反馈， **加入可直接访问 [https://t.me/freenom_auto_renew](https://t.me/freenom_auto_renew) ，或者扫码加入：**
 
 <a href="https://t.me/freenom_auto_renew"><img src="https://s2.loli.net/2022/10/11/k4sSoXqMVfpIY3d.png" alt="freenom_tg_group.png" border="0" width="220px" height="280px" /></a>
